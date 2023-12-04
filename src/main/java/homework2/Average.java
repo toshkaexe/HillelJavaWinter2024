@@ -1,0 +1,7 @@
+package homework2;
+
+public class Average{
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
