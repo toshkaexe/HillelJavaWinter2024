@@ -11,7 +11,7 @@ package homework2;
 
 java DepositCalculator <сума> <відсоток> <тривалість_у_роках>
  */
-public class Vklad {
+public class DepositCalculator {
     public static void main(String[] args) {
         System.out.println("Hello World");
     }
