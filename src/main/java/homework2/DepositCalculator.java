@@ -14,8 +14,8 @@ java DepositCalculator <сума> <відсоток> <тривалість_у_р
 public class DepositCalculator {
     public static void main(String[] args) {
         if (args.length != 3) {
-            System.out.println("Потрібно ввести суму вкладу, " +
-                    "відсоткову ставку та тривалість вкладу (в роках).");
+            System.out.println("You need to enter the deposit amount interest rate and duration" +
+                    " of the deposit (in years)");
             return;
         }
 
