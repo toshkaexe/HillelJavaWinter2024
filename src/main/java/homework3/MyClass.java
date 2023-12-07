@@ -17,10 +17,27 @@ package homework3;
 public class MyClass {
     public static void main(String[] args) {
 
-//1
+//Task 1
         for (int i = 1; i <= 99; i = i + 2) {
             System.out.println(i);
         }
+        System.out.println("Task 3");
+//Task 3        3. Перепишіть програми 1 та 2 за допомогою циклу while.
+        int j = 1;
+        while (j<100){
+
+            System.out.println(j);
+            j = j + 2;
+        }
+
+// 4 4. Перепишіть програми 1 та 2 із використанням циклу do - while.
+        System.out.println("Task 4");
+        int k = 1;
+        do {
+
+            System.out.println(k);
+            k = k + 2;}
+        while (k<100);
 
 
     }
