@@ -13,6 +13,35 @@ java DepositCalculator <сума> <відсоток> <тривалість_у_р
  */
 public class DepositCalculator {
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        if (args.length != 3) {
+            System.out.println("Потрібно ввести суму вкладу, " +
+                    "відсоткову ставку та тривалість вкладу (в роках).");
+            return;
+        }
+
+
+        double principal = Double.parseDouble(args[0]);
+        double interestRate = Double.parseDouble(args[1]);
+        int years = Integer.parseInt(args[2]);
+
+        calculateDeposit(principal, interestRate, years);
+
+
+    }
+
+    public static void calculateDeposit(double principal, double interestRate, int years) {
+        double monthlyInterestRate = interestRate / 100 / 12;
+
+
+        for (int i = 1; i <= years; i++) {
+            double interestEarned = 0;
+            for (int j = 0; j < 12; j++) {
+                double interest = principal * monthlyInterestRate;
+                principal += interest;
+                interestEarned += interest;
+            }
+            System.out.printf(" %d Year: Pricipal amount: %.2f," +
+                    " Sum of percentage:  %.2f%n", i, principal, interestEarned);
+        }
     }
 }
