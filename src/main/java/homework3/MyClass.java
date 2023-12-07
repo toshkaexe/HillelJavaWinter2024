@@ -1,4 +1,5 @@
 package homework3;
+
 /*
 1. За допомогою циклу for вивести на екран непарні числа від 1 до 99.
 2. Дано число n за допомогою циклу for порахувати факторіал n!
@@ -16,9 +17,8 @@ package homework3;
 public class MyClass {
     public static void main(String[] args) {
 
-
-        for(int i=1; i<=99;i = i+2)
-        {
+//1
+        for (int i = 1; i <= 99; i = i + 2) {
             System.out.println(i);
         }
 
