@@ -17,25 +17,44 @@ package homework3;
 public class MyClass {
     public static void main(String[] args) {
         MyClass my = new MyClass();
+
         System.out.println("-Task 1-");
         my.forPrintFrom1to99();
+
+        System.out.println("-Task 2-");
+        int n = 4;
+        my.factorial(n);
+        System.out.println(String.format("Factorial of %d is %d",n, my.factorial(n)));
+
         System.out.println("-Task 3-");
         my.whileDoPrintFrom1to99();
+
         System.out.println("-Task 4-");
         my.doWhilePrintFrom1to99();
+
     }
 
 
+
     //Task 1
-    public  void forPrintFrom1to99() {
+    public void forPrintFrom1to99() {
         for (int i = 1; i <= 99; i = i + 2) {
             System.out.println(i);
         }
     }
 
+    public int factorial(int n) {
+
+        if (n <= 1) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+
     //Task 3
     // Перепишіть програми 1 та 2 за допомогою циклу while
-    public  void whileDoPrintFrom1to99() {
+    public void whileDoPrintFrom1to99() {
         int j = 1;
         while (j < 100) {
 
@@ -46,7 +65,7 @@ public class MyClass {
 
     // Task 4
     // Перепишіть програми 1 та 2 із використанням циклу do - while.
-    public  void doWhilePrintFrom1to99() {
+    public void doWhilePrintFrom1to99() {
         int k = 1;
         do {
             System.out.println(k);
