@@ -17,23 +17,25 @@ package homework3;
 public class MyClass {
     public static void main(String[] args) {
         MyClass my = new MyClass();
-
+/*
         System.out.println("-Task 1-");
         my.forPrintFrom1to99();
 
         System.out.println("-Task 2-");
         int n = 4;
         my.factorial(n);
-        System.out.println(String.format("Factorial of %d is %d",n, my.factorial(n)));
+        System.out.println(String.format("Factorial of %d is %d", n, my.factorial(n)));
 
         System.out.println("-Task 3-");
         my.whileDoPrintFrom1to99();
 
         System.out.println("-Task 4-");
         my.doWhilePrintFrom1to99();
-
+*/
+        double x = 2;
+        int n = -2;
+        System.out.println(my.poverx(x, n));
     }
-
 
 
     //Task 1
@@ -43,6 +45,7 @@ public class MyClass {
         }
     }
 
+    //Task 2
     public int factorial(int n) {
 
         if (n <= 1) {
@@ -74,4 +77,27 @@ public class MyClass {
         while (k < 100);
     }
 
+    //Task 5
+    public double poverx(double x, int power) {
+
+        double res = 1;
+
+        if (power == 0) {
+            return 1;
+        }
+
+        if (power > 0) {
+            for (int i = 0; i < power; i++) {
+                res = res * x;
+
+            }
+            return res;
+
+        } else {
+            for (int i = power; i < 0; i++) {
+                res = res * x;
+            }
+            return 1 / res;
+        }
+    }
 }
