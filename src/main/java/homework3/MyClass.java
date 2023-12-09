@@ -34,7 +34,7 @@ public class MyClass {
 */
         double x = 2;
         int n = -2;
-        System.out.println(my.poverx(x, n));
+        System.out.println(my.powerX(x, n));
     }
 
 
@@ -78,7 +78,7 @@ public class MyClass {
     }
 
     //Task 5
-    public double poverx(double x, int power) {
+    public double powerX(double x, int power) {
 
         double res = 1;
 
