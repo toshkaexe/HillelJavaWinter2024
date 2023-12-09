@@ -16,29 +16,43 @@ package homework3;
  */
 public class MyClass {
     public static void main(String[] args) {
+        MyClass my = new MyClass();
+        System.out.println("-Task 1-");
+        my.forPrintFrom1to99();
+        System.out.println("-Task 3-");
+        my.whileDoPrintFrom1to99();
+        System.out.println("-Task 4-");
+        my.doWhilePrintFrom1to99();
+    }
 
-//Task 1
+
+    //Task 1
+    public  void forPrintFrom1to99() {
         for (int i = 1; i <= 99; i = i + 2) {
             System.out.println(i);
         }
-        System.out.println("Task 3");
-//Task 3        3. Перепишіть програми 1 та 2 за допомогою циклу while.
+    }
+
+    //Task 3
+    // Перепишіть програми 1 та 2 за допомогою циклу while
+    public  void whileDoPrintFrom1to99() {
         int j = 1;
-        while (j<100){
+        while (j < 100) {
 
             System.out.println(j);
             j = j + 2;
         }
+    }
 
-// 4 4. Перепишіть програми 1 та 2 із використанням циклу do - while.
-        System.out.println("Task 4");
+    // Task 4
+    // Перепишіть програми 1 та 2 із використанням циклу do - while.
+    public  void doWhilePrintFrom1to99() {
         int k = 1;
         do {
-
             System.out.println(k);
-            k = k + 2;}
-        while (k<100);
-
-
+            k = k + 2;
+        }
+        while (k < 100);
     }
+
 }
