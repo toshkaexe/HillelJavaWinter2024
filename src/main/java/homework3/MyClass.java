@@ -31,11 +31,13 @@ public class MyClass {
 
         System.out.println("-Task 3-");
         my.whileDoPrintFrom1to99();
+        my.factorialWithWhileLoop(n);
+        System.out.println(String.format("Value of %d! is %d", n, my.factorialWithWhileLoop(n)));
 
         System.out.println("-Task 4-");
 
-        my.doWhilePrintFrom1to99();
-        System.out.println(String.format("Value of %d! is %d", n, my.factorialWithWhileLoop(n)));
+        my.factorialWithDoWhileLoop(n);
+        System.out.println(String.format("Value of %d! is %d", n, my.factorialWithDoWhileLoop(n)));
 
         System.out.println("-Task 5-");
         double x = 2;
@@ -123,6 +125,23 @@ public class MyClass {
     }
 
     public int factorialWithWhileLoop(int n) {
+
+        // Ініціалізуємо факторіал як 1, оскільки 0! і 1! рівні 1
+        int factorial = 1;
+        int i = 1;
+
+
+        while (i <= n){
+
+            factorial *= i;
+            i++;
+
+        };
+
+        return factorial;
+    }
+
+    public int factorialWithDoWhileLoop(int n) {
 
         // Ініціалізуємо факторіал як 1, оскільки 0! і 1! рівні 1
         int factorial = 1;
