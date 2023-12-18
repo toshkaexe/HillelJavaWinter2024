@@ -1,4 +1,4 @@
-package homework_4_1;
+package homework_5_1;
 
 public class SameName {
 }
