@@ -15,4 +15,43 @@ public class Employee {
         this.age = age;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }
