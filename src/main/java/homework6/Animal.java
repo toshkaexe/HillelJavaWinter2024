@@ -1,4 +1,4 @@
-package homework06;
+package homework6;
 
 public class Animal {
     private int runLimit;
