@@ -1,18 +1,30 @@
 package homework6;
 
 public class MyClass {
-    Dog bobik = new Dog();
-    Cat murka = new Cat();
-    //murka.
-       /* bobik.swim(5);
 
-        murka.run(250);
-        murka.swim(2);
+    public static void main(String[] args) {
 
-    /*    System.out.println("Кількість тварин: " + .getAnimalCount());
-        System.out.println("Кількість собак: " + Dog.getDogCount());
-        System.out.println("Кількість котів: " + Cat.getCatCount());
+        Dog bobik = new Dog("Бобик");
+        Dog sharik = new Dog("Шарик");
 
-     */
+        Cat barsik = new Cat("Барсик");
+        Cat kuzya = new Cat("Кузя");
+
+        sharik.run(300);
+        sharik.swim(12);
+
+        bobik.run(150);
+        bobik.swim(5);
+
+        barsik.run(250);
+        barsik.swim(2);
+        kuzya.run(100);
+        kuzya.swim(100);
+
+        System.out.println("Загальна кількість тварин: " + Animal.totalAnimals);
+        System.out.println("Кількість собак: " + Dog.totalDogs);
+        System.out.println("Кількість котів: " + Cat.totalCats);
+
+    }
 }
 

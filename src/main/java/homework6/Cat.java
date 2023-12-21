@@ -1,16 +1,28 @@
 package homework6;
 
-public class Cat extends Animal{
-    private static int catCount = 0;
+class Cat extends Animal {
+    public static int totalCats = 0;
+    private int maxRunDistance = 200;
+    private String name;
 
-    // Конструктор класу Cat
-    public Cat() {
-        super(200, 0);
-        catCount++;
+
+    Cat(String name) {
+        totalCats++;
+        this.name = name;
+
     }
 
-    // Статичний метод для отримання кількості котів
-    public static int getCatCount() {
-        return catCount;
+    @Override
+    void run(int distance) {
+        if (distance <= maxRunDistance) {
+            System.out.println("Кіт " + name + " пробіг " + distance + " м");
+        } else {
+            System.out.println("Кіт " + name + " не може пробігти " + distance + " м");
+        }
+    }
+
+    @Override
+    void swim(int distance) {
+        System.out.println("Кіт " + name + " не вміє плавати");
     }
 }
