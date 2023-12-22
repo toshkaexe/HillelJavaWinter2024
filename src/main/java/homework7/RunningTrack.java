@@ -10,11 +10,12 @@ public class RunningTrack implements Obstacle{
     @Override
     public void overcome(Participant participant) {
 
-        if (participant.run(length)) {
-            System.out.println("Учасник " + participant.getName() + " пробіг бігову доріжку довжиною " + length + " метрів.");
-        } else {
-            System.out.println("Учасник " + participant.getName() + " не пробіг бігову доріжку довжиною " + length + " метрів.");
+        if (participant.isActive() && !participant.run(length)) {
+            System.out.println("Учасник " + participant.getName() + " не пройшов бігову доріжку довжиною " +
+                    length + " метрів. Пройдено " + participant.getRunDistance() + " метрів.");
             participant.eliminate();
+        } else {
+            System.out.println("Учасник " + participant.getName() + " пройшов бігову доріжку довжиною " + length + " метрів.");
         }
     }
 

@@ -1,6 +1,6 @@
 package homework7;
 
-public class MyClassT0 {
+public class MyClass {
     public static void main(String[] args) {
         Circle circle = new Circle(5);
         System.out.println("Площа кола: " + circle.calculateArea());
@@ -46,7 +46,7 @@ public class MyClassT0 {
         // Створення об'єктів різних типів "Перешкода"
         Obstacle[] obstacles = {
                 new RunningTrack(10),
-                new Wall(1.5),
+                new Wall(3),
                 new RunningTrack(15),
                 new Wall(2),
                 new RunningTrack(8)

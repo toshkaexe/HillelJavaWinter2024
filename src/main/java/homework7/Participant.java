@@ -5,28 +5,32 @@ public class Participant {
     private double maxRunDistance;
     private double maxJumpHeight;
     private boolean active;
+    private double runDistance;
+    private double jumpHeight;
 
     public Participant(String name, double maxRunDistance, double maxJumpHeight) {
         this.name = name;
         this.maxRunDistance = maxRunDistance;
         this.maxJumpHeight = maxJumpHeight;
         this.active = true;
+        this.runDistance = 0;
+        this.jumpHeight = 0;
     }
 
-    public String getName() {
-        return name;
-    }
+
+    // Метод, який дозволяє учаснику подолати бігову доріжку
     public boolean run(double distance) {
         if (active && distance <= maxRunDistance) {
+            runDistance += distance;
             return true;
         } else {
             return false;
         }
     }
-
     // Метод, який дозволяє учаснику подолати стіну
     public boolean jump(double height) {
-        if (active && height <= maxJumpHeight) {
+        if (isActive() && height <= maxJumpHeight) {
+            jumpHeight += height;
             return true;
         } else {
             return false;
@@ -35,6 +39,22 @@ public class Participant {
 
     // Метод для виключення учасника з гонки
     public void eliminate() {
-        active = false;
+        this.active = false;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+    public double getRunDistance() {
+        return runDistance;
+    }
+
+    public double getJumpHeight() {
+        return jumpHeight;
     }
 }
+
