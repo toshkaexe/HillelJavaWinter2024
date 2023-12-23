@@ -29,7 +29,7 @@ public class Participant {
     }
     // Метод, який дозволяє учаснику подолати стіну
     public boolean jump(double height) {
-        if (isActive() && height <= maxJumpHeight) {
+        if (active && height <= maxJumpHeight) {
             jumpHeight += height;
             return true;
         } else {

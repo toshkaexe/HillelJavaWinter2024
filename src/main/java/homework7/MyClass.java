@@ -35,20 +35,20 @@ public class MyClass {
         robot.run();
         robot.jump();
 
-///
+
         // Створення об'єктів різних типів "Учасник"
         Participant[] participants = {
-                new Participant("Іван", 15, 1.5),
-                new Participant("Марія", 12, 2),
-                new Participant("Олег", 20, 1)
+                new Participant("Іван", 50, 50),
+                new Participant("Вадим", 50, 50),
+                new Participant("Олег", 50, 50)
         };
 
         // Створення об'єктів різних типів "Перешкода"
         Obstacle[] obstacles = {
                 new RunningTrack(10),
-                new Wall(3),
+                new Wall(19),
                 new RunningTrack(15),
-                new Wall(2),
+                new Wall(45),
                 new RunningTrack(8)
         };
 
@@ -57,8 +57,9 @@ public class MyClass {
             for (Obstacle obstacle : obstacles) {
                 obstacle.overcome(participant);
             }
-            System.out.println(); // Додатковий рядок між учасниками
+            System.out.println();
         }
+
     }
 
 
@@ -69,5 +70,6 @@ public class MyClass {
         }
         return totalArea;
     }
+
 
 }

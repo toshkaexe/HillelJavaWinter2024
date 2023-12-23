@@ -9,14 +9,25 @@ public class Wall implements Obstacle {
 
     @Override
     public void overcome(Participant participant) {
-        if  (participant.isActive() && !participant.jump(height))  {
-            System.out.println("Учасник " + participant.getName() + " перестрибнув стіну висотою " + height + " метрів.");
+
+
+        boolean status = participant.isActive();
+        if (!status) {
+            System.out.println("Учасник " + participant.getName() +
+                    " далi не перестрибнув стіну висотою " + height + " метрів.");
+
+        } else if (!participant.jump(height)) {
+            System.out.println("Учасник " + participant.getName() + " не перестрибнув стіну висотою " + height + " метрів.");
+
             participant.eliminate();
         } else {
-            System.out.println("Учасник " + participant.getName() + " не перестрибнув стіну висотою " + height + " метрів. Пройдено "
+            System.out.println("Учасник " + participant.getName() + " перестрибнув стіну висотою " + height + " метрів. Пройдено "
                     + participant.getJumpHeight() + " метрів.");
-            participant.eliminate();
         }
+
     }
 
+
 }
+
+
