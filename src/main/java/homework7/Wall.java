@@ -14,10 +14,10 @@ public class Wall implements Obstacle {
         boolean status = participant.isActive();
         if (!status) {
             System.out.println("Учасник " + participant.getName() +
-                    " далi не перестрибнув стіну висотою " + height + " метрів.");
+                    " далі не допущено до стіни висотою " + height + " метрів");
 
         } else if (!participant.jump(height)) {
-            System.out.println("Учасник " + participant.getName() + " не перестрибнув стіну висотою " + height + " метрів.");
+            System.out.println("Упс...Учасник " + participant.getName() + " не перестрибнув стіну висотою " + height + " метрів.");
 
             participant.eliminate();
         } else {

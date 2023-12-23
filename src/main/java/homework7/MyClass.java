@@ -39,8 +39,8 @@ public class MyClass {
         // Створення об'єктів різних типів "Учасник"
         Participant[] participants = {
                 new Participant("Іван", 50, 50),
-                new Participant("Вадим", 50, 50),
-                new Participant("Олег", 50, 50)
+                new Participant("Вадим", 9, 50),
+                new Participant("Олег", 12, 40)
         };
 
         // Створення об'єктів різних типів "Перешкода"

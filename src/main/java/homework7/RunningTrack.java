@@ -13,11 +13,11 @@ public class RunningTrack implements Obstacle {
         boolean status = participant.isActive();
         if (!status) {
             System.out.println("Учасник " + participant.getName() +
-                    " далi не пройшов бігову доріжку довжиною " +
-                    length + " метрів. Пройдено " + participant.getRunDistance() + " метрів.");
+                    " далі не допущено до бігової доріжки завдовжки довжиною " +
+                    length + " метрів");
 
         } else if (!participant.run(length)) {
-            System.out.println("Учасник " + participant.getName() +
+            System.out.println("Упс...Учасник " + participant.getName() +
                     " не пройшов бігову доріжку довжиною " +
                     length + " метрів. Пройдено " + participant.getRunDistance() + " метрів.");
             participant.eliminate();
