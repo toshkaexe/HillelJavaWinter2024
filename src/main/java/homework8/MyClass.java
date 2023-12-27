@@ -14,11 +14,11 @@ public class MyClass {
         SubscriberService subscriberService = new SubscriberServiceImpl(subscribers);
 
         System.out.println("Bідомості про абонентів, у яких час внутрішньоміських розмов перевищує заданий");
-        subscriberService.printSubscribet_with_CityCallDurationAbove(20);
+        subscriberService.printSubscriberCityCallDurationAbove(20);
         System.out.println();
 
         System.out.println("Bідомості про абонентів, які користувалися міжміським зв'язком");
-        subscriberService.printSubscriber_with_InterCityCalls();
+        subscriberService.printSubscriberInterCityCalls();
         System.out.println();
 
         System.out.println("Відомості про абонентів ПІБ, номер телефону, баланс - де перший бука прізвища передається як параметр");

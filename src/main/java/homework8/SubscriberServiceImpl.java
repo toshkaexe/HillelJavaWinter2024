@@ -11,7 +11,7 @@ public class SubscriberServiceImpl implements SubscriberService {
 
     //a) відомості про абонентів, у яких час внутрішньоміських розмов перевищує заданий;
     @Override
-    public void printSubscribet_with_CityCallDurationAbove(int duration) {
+    public void printSubscriberCityCallDurationAbove(int duration) {
         System.out.println("Абоненти з внутрішньоміським часом розмов більше " + duration + " хв:");
         for (Subscriber subscriber : subscribers) {
             if (subscriber.getCityCallDurationMin() > duration) {
@@ -22,7 +22,7 @@ public class SubscriberServiceImpl implements SubscriberService {
 
     //b) відомості про абонентів, які користувалися міжміським зв'язком;
     @Override
-    public void printSubscriber_with_InterCityCalls() {
+    public void printSubscriberInterCityCalls() {
         System.out.println("Абоненти, які користувалися міжміським зв'язком:");
         for (Subscriber subscriber : subscribers) {
             if (subscriber.getInterCityCallDurationMin() > 0) {

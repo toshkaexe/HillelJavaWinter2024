@@ -4,9 +4,9 @@ public interface SubscriberService {
 
     // a) відомості про абонентів, у яких час внутрішньоміських
    // розмов перевищує заданий;
-    void printSubscribet_with_CityCallDurationAbove(int duration);
+    void printSubscriberCityCallDurationAbove(int duration);
     // b) відомості про абонентів, які користувалися міжміським зв'язком;
-    void printSubscriber_with_InterCityCalls();
+    void printSubscriberInterCityCalls();
 
     // c) відомості про абонентів ПІБ, номер телефону,
     // баланс - де перший бука прізвища передається як параметр.
