@@ -3,7 +3,7 @@ package homework9;
 import java.util.Arrays;
 
 public class DynamicStringArray implements StringMethods {
-    private static final int INITIAL_CAPACITY = 10;
+    private static final int INITIAL_CAPACITY = 100;
     private String[] array;
     private int size;
 
