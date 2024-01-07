@@ -26,9 +26,7 @@ public class MyClass {
 
         boolean areEqual = myCollection1.equals(myCollection2);
 
-        // Виводимо результат порівняння
         System.out.println("Равны ли две коллекции: " + areEqual);
-
 
         myCollection1.delete("Two");
         System.out.println("Размер коллекции после удаления " + myCollection1.size());
