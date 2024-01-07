@@ -1,16 +1,5 @@
 package homework10;
 
-
-//Реалізувати просту динамічну колекцію для String на основі масиву.
-//
-//Реалізувати такі методи для роботи з колекцією:
-//
-//        1. boolean add(int index, String value);
-//2. boolean add(String value);
-//3. boolean delete(int index);
-//4. boolean delete(String value);
-//5. String get(int index);
-
 public class MyClass {
     public static void main(String[] args) {
 
@@ -25,11 +14,11 @@ public class MyClass {
         myCollection2.add("Three");
 
         // Выводим размер
-        System.out.println("Розмір колекції: " + myCollection1.size());
+        System.out.println("Размер коллекции: " + myCollection1.size());
 
         // и все элементы
         for (int i = 0; i < myCollection1.size(); i++) {
-            System.out.println("Елемент " + i + ": " + myCollection1.get(i));
+            System.out.println("Элемент " + i + ": " + myCollection1.get(i));
         }
 
         // проверка наличия элемента в коллекции
