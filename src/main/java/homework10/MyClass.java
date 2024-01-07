@@ -14,32 +14,37 @@ package homework10;
 public class MyClass {
     public static void main(String[] args) {
 
-        DynamicArrayCollection myCollection = new DynamicArrayCollection();
-        myCollection.add("One");
-        myCollection.add("Two");
-        myCollection.add("Three");
+        DynamicArrayCollection myCollection1 = new DynamicArrayCollection();
+        myCollection1.add("One");
+        myCollection1.add("Two");
+        myCollection1.add("Three");
+
+        DynamicArrayCollection myCollection2 = new DynamicArrayCollection();
+        myCollection2.add("One");
+        myCollection2.add("Two");
+        myCollection2.add("Three");
 
         // Выводим размер
-        System.out.println("Розмір колекції: " + myCollection.size());
+        System.out.println("Розмір колекції: " + myCollection1.size());
 
-        //
-        for (int i = 0; i < myCollection.size(); i++) {
-            System.out.println("Елемент " + i + ": " + myCollection.get(i));
+        // и все элементы
+        for (int i = 0; i < myCollection1.size(); i++) {
+            System.out.println("Елемент " + i + ": " + myCollection1.get(i));
         }
 
-        // Перевіряємо наявність елемента
-        System.out.println("Чи містить 'Two': " + myCollection.contain("Two"));
+        // проверка наличия элемента в коллекции
+        System.out.println("Есть ли в коллекции значение 'Two': " + myCollection1.contain("Two"));
 
-        // Видаляємо елемент
-        myCollection.delete("Two");
+        boolean areEqual = myCollection1.equals(myCollection2);
 
-        // Перевіряємо розмір після видалення
-        System.out.println("Розмір колекції після видалення: " + myCollection.size());
+        // Виводимо результат порівняння
+        System.out.println("Равны ли две коллекции: " + areEqual);
 
-        // Очищаємо колекцію
-        myCollection.clear();
 
-        // Перевіряємо розмір після очищення
-        System.out.println("Розмір колекції після очищення: " + myCollection.size());
+        myCollection1.delete("Two");
+        System.out.println("Размер коллекции после удаления " + myCollection1.size());
+
+        myCollection1.clear();
+        System.out.println("Размер коллекции после  clear(): " + myCollection1.size());
     }
 }
