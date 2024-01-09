@@ -1,6 +1,9 @@
 package homework11.phonebook;
 
+import homework10.Collection;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PhoneBook {
@@ -27,9 +30,10 @@ public class PhoneBook {
         List<Record> foundRecords = new ArrayList<>();
         for (Record record : records) {
             if (record.getName().equalsIgnoreCase(name)) {
-                foundRecords.add(record); // Знайдено запис з вказаним ім'ям
+                foundRecords.add(record);
             }
         }
-        return foundRecords.isEmpty() ? null : foundRecords; // Повертаємо список або null, якщо нічого не знайдено
+        return foundRecords.isEmpty() ? Collections.emptyList() : foundRecords; //
+        // Повертаємо список або пустой список, якщо нічого не знайдено
     }
 }
