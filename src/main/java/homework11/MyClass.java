@@ -32,6 +32,11 @@ public class MyClass {
         List<Integer> result = findUnique(inputList);
         System.out.println(result);
 
+
+        //Task 4
+        List<String> wordsList = List.of("bird", "fox", "bird", "cat", "bird", "dog", "cat", "fox", "bird", "cat", "flamingo");
+        calcOccurrence(wordsList);
+
     }
 
     //Task 1
@@ -69,6 +74,31 @@ public class MyClass {
         }
 
         return uniqueList;
+    }
+
+    //Task 4
+    public static void calcOccurrence(List<String> wordList) {
+
+        int[] occurrences = new int[wordList.size()];
+
+
+        for (int i = 0; i < wordList.size(); i++) {
+            // Пропускаємо обробку слова, якщо вже врахували його раніше
+            if (occurrences[i] != -1) {
+                int count = 1;
+
+                // Порівнюємо з рештою елементів, щоб знайти входження і збільшити кількість
+                for (int j = i + 1; j < wordList.size(); j++) {
+                    if (wordList.get(i).equals(wordList.get(j))) {
+                        count++;
+                        occurrences[j] = -1; // Відмічаємо інші входження, щоб їх не обробляти
+                    }
+                }
+
+                // Виводимо результат у консоль
+                System.out.println(wordList.get(i) + ": " + count);
+            }
+        }
     }
 
 }

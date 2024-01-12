@@ -20,7 +20,7 @@ public class PhoneBook {
     public Record find(String name) {
         for (Record record : records) {
             if (record.getName().equalsIgnoreCase(name)) {
-                return record; // Знайдено перший запис з вказаним ім'ям
+                return record;
             }
         }
         return null; // Запис не знайдено
@@ -33,7 +33,7 @@ public class PhoneBook {
                 foundRecords.add(record);
             }
         }
+
         return foundRecords.isEmpty() ? Collections.emptyList() : foundRecords; //
-        // Повертаємо список або пустой список, якщо нічого не знайдено
     }
 }
