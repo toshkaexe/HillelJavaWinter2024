@@ -12,7 +12,9 @@ public class MyClass {
 
         orderBoard.printOrders();
 
-        orderBoard.deliver(2);
+        orderBoard.deliver();
+
+        orderBoard.deliver(4);
 
         orderBoard.printOrders();
     }
