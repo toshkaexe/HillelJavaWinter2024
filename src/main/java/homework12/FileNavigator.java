@@ -1,9 +1,6 @@
 package homework12;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FileNavigator {
     private Map<String, List<FileData>> fileMap;
@@ -31,7 +28,7 @@ public class FileNavigator {
 
         // Перевірка консистентності
         if (!path.equals(getKeyFromPath(path))) {
-            System.out.println("Помилка: Шлях-ключ і шлях до файлу не співпадають");
+            System.out.println("Error: Key path and file path do not match");
             return;
         }
 
@@ -49,18 +46,21 @@ public class FileNavigator {
             allFiles.addAll(files);
         }
 
-        allFiles.sort((file1, file2) -> Long.compare(file1.getSize(), file2.getSize()));
+        allFiles.sort(new Comparator<FileData>() {
+            @Override
+            public int compare(FileData file1, FileData file2) {
+                return Long.compare(file1.getSize(), file2.getSize());
+            }
+        });
+
 
         return allFiles;
     }
 
+    // Метод для отримання ключа (шляху-ключа) з шляху
     private String getKeyFromPath(String path) {
-        // Метод для отримання ключа (шляху-ключа) з шляху
-        // Реалізація може бути змінена в залежності від вашого формату шляхів
-        // У цьому прикладі просто повертаємо останній каталог у шляху
         String[] pathParts = path.split("/");
         return pathParts[pathParts.length - 1];
     }
-
 
 }
