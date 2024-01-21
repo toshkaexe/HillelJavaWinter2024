@@ -22,4 +22,8 @@ public class FileData {
     public String getPath() {
         return path;
     }
+    @Override
+    public String toString() {
+        return "FileData{name='" + name + "', size=" + size + ", path='" + path + "'}";
+    }
 }

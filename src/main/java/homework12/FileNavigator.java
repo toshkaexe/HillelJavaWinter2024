@@ -4,36 +4,42 @@ import java.util.*;
 
 public class FileNavigator {
     private Map<String, List<FileData>> fileMap;
+
     public FileNavigator() {
         this.fileMap = new HashMap<>();
     }
+
+    public void add(FileData file) {
+        String path = file.getPath();
+        if (fileMap.containsKey(path)) {
+            List<FileData> fileList = fileMap.get(path);
+            // Check consistency
+            if (!fileList.isEmpty() && !fileList.get(0).getPath().equals(path)) {
+                System.out.println("Error: Path inconsistency - Cannot add FileData with a different path.");
+                return;
+            }
+            fileList.add(file);
+        } else {
+            List<FileData> fileList = new ArrayList<>();
+            fileList.add(file);
+            fileMap.put(path, fileList);
+        }
+    }
+
     public List<FileData> find(String path) {
         return fileMap.getOrDefault(path, new ArrayList<>());
     }
 
     public List<FileData> filterBySize(String path, long maxSize) {
-        List<FileData> files = fileMap.getOrDefault(path, new ArrayList<>());
-        List<FileData> filteredFiles = new ArrayList<>();
-
-        for (FileData file : files) {
-            if (file.getSize() <= maxSize) {
-                filteredFiles.add(file);
+        List<FileData> result = new ArrayList<>();
+        if (fileMap.containsKey(path)) {
+            for (FileData file : fileMap.get(path)) {
+                if (file.getSize() <= maxSize) {
+                    result.add(file);
+                }
             }
         }
-
-        return filteredFiles;
-    }
-    public void add(FileData fileData) {
-        String path = fileData.getPath();
-
-        // Перевірка консистентності
-        if (!path.equals(getKeyFromPath(path))) {
-            System.out.println("Error: Key path and file path do not match");
-            return;
-        }
-
-        // Додавання файлу до відповідного шляху
-        fileMap.computeIfAbsent(path, k -> new ArrayList<>()).add(fileData);
+        return result;
     }
 
     public void remove(String path) {
@@ -41,26 +47,11 @@ public class FileNavigator {
     }
 
     public List<FileData> sortBySize() {
-        List<FileData> allFiles = new ArrayList<>();
-        for (List<FileData> files : fileMap.values()) {
-            allFiles.addAll(files);
+        List<FileData> result = new ArrayList<>();
+        for (List<FileData> fileList : fileMap.values()) {
+            result.addAll(fileList);
         }
-
-        allFiles.sort(new Comparator<FileData>() {
-            @Override
-            public int compare(FileData file1, FileData file2) {
-                return Long.compare(file1.getSize(), file2.getSize());
-            }
-        });
-
-
-        return allFiles;
+        result.sort(Comparator.comparingLong(FileData::getSize));
+        return result;
     }
-
-    // Метод для отримання ключа (шляху-ключа) з шляху
-    private String getKeyFromPath(String path) {
-        String[] pathParts = path.split("/");
-        return pathParts[pathParts.length - 1];
-    }
-
 }
