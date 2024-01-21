@@ -1,4 +1,4 @@
-package homework14;
+package homework14.exception;
 
 public class ArraySizeException extends Exception {
     public ArraySizeException(String message) {

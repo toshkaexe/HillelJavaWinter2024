@@ -1,6 +1,6 @@
-package homework14;
+package homework14.exception;
 
-import static homework14.ArrayValueCalculator.doCalc;
+import static homework14.exception.ArrayValueCalculator.doCalc;
 
 public class MyClass {
     public static void main(String[] args) {

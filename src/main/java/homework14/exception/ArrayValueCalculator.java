@@ -1,4 +1,4 @@
-package homework14;
+package homework14.exception;
 
 import java.util.Arrays;
 
