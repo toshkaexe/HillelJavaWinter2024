@@ -24,3 +24,7 @@ hs_err_pid*
 replay_pid*
 /.idea/
 /src/main/java/homework15/capcha/target/
+/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+/target/maven-archiver/pom.properties
+/dateUtils/pom.xml
