@@ -1,15 +1,12 @@
 import com.hillel.java.ContentException;
-
-import java.util.Scanner;
-
 public class MyClass {
-    public static void main(String[] args) throws ContentException {
+    public static void main(String[] args) {
         String inputSequence = args[0];
         // Перевірка на наявність букв
         try {
             // Перевірка на наявність букв
             if (!containsLetters(inputSequence)) {
-                throw new ContentException("Помилка: Послідовність має містити тільки цифри.");
+                throw new ContentException("Помилка: Послідовність має містити тільки цифри!");
             } else{
                 printPseudoGraphicsInOneRow(inputSequence);
             }
