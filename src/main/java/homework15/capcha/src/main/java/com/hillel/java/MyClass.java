@@ -1,3 +1,5 @@
+package com.hillel.java;
+
 import com.hillel.java.ContentException;
 public class MyClass {
     public static void main(String[] args) {

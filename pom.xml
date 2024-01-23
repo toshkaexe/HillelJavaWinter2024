@@ -8,6 +8,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>src/main/java/homework15/capcha</module>
+        <module>src/main/java/homework16/untitled</module>
     </modules>
     <version>0.1.0</version>
 
