@@ -6,15 +6,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CoffeeOrderBoardTest {
-    private CoffeeOrderBoard coffeeOrderBoard;
-
-    @BeforeEach
-    public void setUp() {
-        coffeeOrderBoard = new CoffeeOrderBoard();
-    }
-
     @Test
     public void testAddAndPrintOrders() {
+        CoffeeOrderBoard coffeeOrderBoard =  new CoffeeOrderBoard();
+
         Order order1 = new Order("Alen");
         Order order2 = new Order("Yoda");
 
@@ -27,6 +22,7 @@ public class CoffeeOrderBoardTest {
 
     @Test
     public void testDeliver() {
+        CoffeeOrderBoard coffeeOrderBoard =  new CoffeeOrderBoard();
         Order order3 = new Order("Max");
         Order order4 = new Order("Lukas");
 
@@ -42,6 +38,7 @@ public class CoffeeOrderBoardTest {
 
     @Test
     public void testDeliverByNumber() {
+        CoffeeOrderBoard coffeeOrderBoard =  new CoffeeOrderBoard();
         Order order5 = new Order("Anna");
         Order order6 = new Order("Pavel");
 
