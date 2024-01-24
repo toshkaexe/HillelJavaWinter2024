@@ -5,10 +5,10 @@ public class MyClass {
 
         CoffeeOrderBoard orderBoard = new CoffeeOrderBoard();
 
-        orderBoard.add(new Order("Alen"));
-        orderBoard.add(new Order("Yoda"));
-        orderBoard.add(new Order("Obi-van"));
-        orderBoard.add(new Order("John Snow"));
+        orderBoard.add("Alen");
+        orderBoard.add("Yoda");
+        orderBoard.add("Peter");
+        orderBoard.add("Marya");
 
         orderBoard.printOrders();
 

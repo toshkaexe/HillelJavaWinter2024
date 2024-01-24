@@ -2,10 +2,10 @@ package org.hillel;
 
 public class Order {
     private static int orderCounter = 1;
-    private int orderNumber;
-    private String customerName;
+    private final int orderNumber;
+    private final String customerName;
 
-    public Order(String customerName) {
+    public Order(final String customerName) {
         this.orderNumber = orderCounter++;
         this.customerName = customerName;
     }
@@ -17,4 +17,6 @@ public class Order {
     public String getCustomerName() {
         return customerName;
     }
+
+
 }
