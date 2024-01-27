@@ -9,6 +9,7 @@
     <modules>
         <module>src/main/java/homework15/capcha</module>
         <module>src/main/java/homework16/untitled</module>
+        <module>src/main/java/homework17/homework17</module>
     </modules>
     <version>0.1.0</version>
 
