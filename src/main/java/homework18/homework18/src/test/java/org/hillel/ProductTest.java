@@ -3,9 +3,7 @@ package org.hillel;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -51,6 +49,16 @@ public class ProductTest {
         assertEquals(200, cheapestBook.getPrice());
     }
 
+
+    public void testGetCheapestBookException() {
+        List<Product> emptyProductsList = Collections.emptyList();
+
+        Exception exception = assertThrows(NoSuchElementException.class, () -> {
+            Product.getCheapestBook(emptyProductsList);
+        });
+
+        assertEquals("Продукт [категорія: Book] не знайдено", exception.getMessage());
+    }
     @Test
     public void testCalculateTotalCost() {
         List<Product> products = Arrays.asList(
