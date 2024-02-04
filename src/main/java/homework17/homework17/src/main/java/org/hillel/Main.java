@@ -1,10 +1,7 @@
-package org.springframework;
-
-import org.apache.commons.lang3.tuple.Pair;
+package org.hillel;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Main {
 
