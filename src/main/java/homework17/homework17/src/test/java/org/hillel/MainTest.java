@@ -33,4 +33,17 @@ public class MainTest {
         assertEquals("THREE", result.get(2).getUppercase());
     }
 
+    @Test
+    public void testFilterStrings(){
+
+
+        List<String> inputStrings = Arrays.asList("abcd", "Efgh", "ijkl", "mnop", "QRST", "uvwx", "yz");
+
+        List<String> filteredStrings = Main.filterStrings(inputStrings);
+        List<String> expectedStrings = Arrays.asList("abcd", "ijkl", "mnop", "uvwx");
+
+        // Проверка на совпадение
+        assertEquals(expectedStrings, filteredStrings);
+
+    }
 }

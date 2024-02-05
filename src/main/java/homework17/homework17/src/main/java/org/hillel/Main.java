@@ -20,8 +20,24 @@ public class Main {
         for (Pair pair : result) {
             System.out.println("{" + pair.getLowercase() + ":" + pair.getUppercase() + "}");
         }
+
+        List<String> strings = Arrays.asList("abcd", "Efgh", "ijkl", "mnop", "QRST", "uvwx", "yz");
+
+        List<String>  listOfStrings = filterStrings(strings);
+
+        for (String str: listOfStrings){
+            System.out.println(str);
+        }
+
+
     }
 
+   public  static List<String> filterStrings(List<String> strings) {
+
+        return  strings.stream()
+                .filter(s -> s.equals(s.toLowerCase()) && s.length() == 4)
+                .collect(Collectors.toList());
+    }
 
     public static double calcucateAvarage(List<Integer> array) {
         return array.stream()
@@ -30,14 +46,10 @@ public class Main {
                 .orElse(0.0);
     }
 
-
-
     public static List<Pair> convertToUppercase(List<String> strings) {
         return strings.stream()
                 .map(s -> new Pair(s, s.toUpperCase()))
                 .collect(Collectors.toList());
     }
-
-
 }
 
