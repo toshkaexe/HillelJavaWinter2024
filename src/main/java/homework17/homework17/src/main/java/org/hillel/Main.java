@@ -11,7 +11,6 @@ public class Main {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
         System.out.println("Average: " + calcucateAvarage(numbers));
 
-
         List<String> inputList = Arrays.asList("one", "two", "three");
 
         List<Pair> result = convertToUppercase(inputList);
@@ -20,7 +19,7 @@ public class Main {
         for (Pair pair : result) {
             System.out.println("{" + pair.getLowercase() + ":" + pair.getUppercase() + "}");
         }
-
+        // Task 3
         List<String> strings = Arrays.asList("abcd", "Efgh", "ijkl", "mnop", "QRST", "uvwx", "yz");
 
         List<String>  listOfStrings = filterStrings(strings);
@@ -28,8 +27,6 @@ public class Main {
         for (String str: listOfStrings){
             System.out.println(str);
         }
-
-
     }
 
    public  static List<String> filterStrings(List<String> strings) {
