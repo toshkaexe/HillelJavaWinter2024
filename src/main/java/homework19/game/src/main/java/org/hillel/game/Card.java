@@ -1,4 +1,4 @@
-package org.hillel.game.dto;
+package org.hillel.game;
 
 public enum Card {
     Rock("rock"),

@@ -1,26 +1,23 @@
 package org.hillel.game;
 
-import org.hillel.game.dto.Card;
-
 public class Game {
 
     private int playerWins;
     private int computerWins;
-
     private int tie;
 
-    public String playRound(Card playerCard, Card computerCard) {
-        if (playerCard == computerCard) {
+    public int playRound(Card playerCard, Card computerCard) {
+        if (playerCard.getCard().equals(computerCard.getCard())) {
             tie++;
-            return "It's a tie";
+            return 0;
         } else if ((playerCard == Card.Rock && computerCard == Card.Scissors) ||
                 (playerCard == Card.Paper && computerCard == Card.Rock) ||
                 (playerCard == Card.Scissors && computerCard == Card.Paper)) {
             playerWins++;
-            return "Player wins";
+            return 1;
         } else {
             computerWins++;
-            return "Computer wins";
+            return 2;
         }
     }
 

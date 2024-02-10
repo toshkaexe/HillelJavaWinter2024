@@ -1,5 +1,4 @@
 package org.hillel.game;
-import org.hillel.game.dto.Card;
 
 import java.util.Scanner;
 public class RockPaperScissors {
@@ -21,38 +20,41 @@ public class RockPaperScissors {
             System.out.println("Game: " + j + "/"+numGames);
 
             do {
-                System.out.println("Enter your choice (rock, paper, or scissors):");
+                System.out.println("Enter your choice (rock, paper, or scissors, exit):");
                 playerChoice = scanner.nextLine().toLowerCase();
+
+                // Проверяем, хочет ли пользователь завершить игру
+                if (playerChoice.equals("exit")) {
+                    System.out.println("Exiting the game...");
+                    return;
+                }
             } while (!isValidChoice(playerChoice, validChoices));
 
-            Card playerKarta = Card.valueOf(playerChoice.substring(0, 1).toUpperCase() + playerChoice.substring(1));
-            System.out.println(playerName +"'s choice: " +   playerKarta.getCard());
+            Card playerCard = Card.valueOf(playerChoice.substring(0, 1).toUpperCase() + playerChoice.substring(1));
+            System.out.println(playerName +"'s choice: " +   playerCard.getCard());
 
             Card computerCard = generateComputerChoice();
             System.out.println("Computer's choice: " + computerCard.getCard());
 
 
-            String result = game.playRound(playerKarta, computerCard);
-            if (result.equals("Player wins!")) {
-                System.out.println("You win!");
-            } else if (result.equals("Computer wins!")) {
-                System.out.println("Computer wins!");
-            } else {
-                System.out.println("It's a tie!");
+            int result = game.playRound(playerCard, computerCard);
+            switch (result) {
+                case 1:
+                    System.out.println(playerName + " wins!");
+                    break;
+                case 2:
+                    System.out.println("Computer wins!");
+                    break;
+                default:
+                    System.out.println("It's a tie!");
+                    break;
             }
-
-//            // Проверяем, хочет ли пользователь завершить игру
-//            System.out.println("Do you want to quit? (Type 'quit' to exit)");
-//            String userInput = scanner.nextLine().toLowerCase();
-//            if (userInput.equals("quit")) {
-//                break;
-//            }
         }
 
-        System.out.println("Total games played: " + numGames);
-        System.out.println("Total wins: " + game.getPlayerWins());
-        System.out.println("Total losses: " + game.getComputerWins());
-        System.out.println("Total ties: " + game.getTie());
+        System.out.println(playerName +"'s Total games played: " + numGames);
+        System.out.println(playerName +"'s Total wins: " + game.getPlayerWins());
+        System.out.println(playerName +"'s Total losses: " + game.getComputerWins());
+        System.out.println(playerName +"'s Total ties: " + game.getTie());
     }
 
 
