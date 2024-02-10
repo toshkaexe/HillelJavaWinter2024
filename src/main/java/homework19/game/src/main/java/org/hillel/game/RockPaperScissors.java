@@ -20,7 +20,7 @@ public class RockPaperScissors {
             System.out.println("Game: " + j + "/"+numGames);
 
             do {
-                System.out.println("Enter your choice (rock, paper, or scissors, exit):");
+                System.out.println("Enter your choice (rock, paper, scissors or exit):");
                 playerChoice = scanner.nextLine().toLowerCase();
 
                 // Проверяем, хочет ли пользователь завершить игру

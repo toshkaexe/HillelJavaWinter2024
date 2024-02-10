@@ -49,3 +49,5 @@ replay_pid*
 /src/main/java/homework19/game/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 /src/main/java/homework19/game/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
 /src/main/java/homework19/game/target/maven-archiver/pom.properties
+/src/main/java/homework19/game/target/surefire-reports/GameTest.txt
+/src/main/java/homework19/game/target/surefire-reports/TEST-GameTest.xml
