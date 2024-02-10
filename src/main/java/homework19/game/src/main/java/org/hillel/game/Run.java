@@ -23,13 +23,8 @@ public class Run {
             }
         } while (numGames <= 0);
 
-
-
-
-
-
         RockPaperScissors gameService = new RockPaperScissors(playerName);
         gameService.playGame(numGames);
         scanner.close();
     }
-    }
+}

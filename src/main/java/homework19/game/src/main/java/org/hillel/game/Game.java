@@ -28,7 +28,8 @@ public class Game {
     public int getComputerWins() {
         return computerWins;
     }
-    public int getTie(){
+
+    public int getTie() {
         return tie;
     }
 }
