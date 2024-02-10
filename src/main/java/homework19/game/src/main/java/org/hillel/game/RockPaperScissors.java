@@ -50,11 +50,11 @@ public class RockPaperScissors {
                     break;
             }
         }
-
+        System.out.println("----------------------------------");
         System.out.println(playerName +"'s Total games played: " + numGames);
         System.out.println(playerName +"'s Total wins: " + game.getPlayerWins());
-        System.out.println(playerName +"'s Total losses: " + game.getComputerWins());
-        System.out.println(playerName +"'s Total ties: " + game.getTie());
+        System.out.println(playerName +"'s Total losses/Computer wins: " + game.getComputerWins());
+        System.out.println(playerName +"'s/Computer's Total ties: " + game.getTie());
     }
 
 

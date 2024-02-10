@@ -8,8 +8,25 @@ public class Run {
         System.out.println("Enter your name:");
         Scanner scanner = new Scanner(System.in);
         String playerName = scanner.nextLine();
-        System.out.println("How many games would you like to play?");
-        int numGames = scanner.nextInt();
+
+        int numGames;
+        do {
+            System.out.println("How many games would you like to play?");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Please enter a valid number.");
+                scanner.next(); // очистка буфера ввода
+            }
+            numGames = scanner.nextInt();
+
+            if (numGames <= 0) {
+                System.out.println("Please enter a number greater than zero.");
+            }
+        } while (numGames <= 0);
+
+
+
+
+
 
         RockPaperScissors gameService = new RockPaperScissors(playerName);
         gameService.playGame(numGames);
