@@ -16,7 +16,7 @@ public class FileLoggerTest {
         String logFilePath = "configTest.txt";
         FileLoggerConfiguration config = new FileLoggerConfiguration(logFilePath,
                 LoggingLevel.INFO,
-                1024,
+                500000,
                 "[TIME][LEVEL] Message: [MESSAGE]");
         FileLogger logger = new FileLogger(config);
 
@@ -30,11 +30,10 @@ public class FileLoggerTest {
         // read list line from the file
         String line = readLastLineFromFile(logFilePath);
         // pattern regex
-        String regexPattern = "\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}INFO Message: .+";
+        String regexPattern = "\\[\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\]\\[INFO\\] Message: .+";
         boolean isMatch = Pattern.matches(regexPattern, line);
         assertTrue(isMatch);
-        // Clean up
-        logFile.delete();
+
     }
 
 
@@ -43,7 +42,7 @@ public class FileLoggerTest {
         String logFilePath = "configTest.txt";
         FileLoggerConfiguration config = new FileLoggerConfiguration(logFilePath,
                 LoggingLevel.DEBUG,
-                1024,
+                500000,
                 "[TIME][LEVEL] Message: [MESSAGE]");
         FileLogger logger = new FileLogger(config);
 
@@ -57,11 +56,10 @@ public class FileLoggerTest {
         String line = readLastLineFromFile(logFilePath);
 
         // pattern regex
-        String regexPattern = "\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}DEBUG Message: .+";
+        String regexPattern = "\\[\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\]\\[DEBUG\\] Message: .+";
         boolean isMatch = Pattern.matches(regexPattern, line);
         assertTrue(isMatch);
-        // Clean up
-        logFile.delete();
+
     }
 
     public static String readLastLineFromFile(String filePath) {

@@ -10,7 +10,7 @@ public class FileLoggerConfigurationLoader {
                 "FILE: logs.txt",
                 "LEVEL: DEBUG",
                 "MAX-SIZE: 1024",
-                "FORMAT: [TIME][LEVEL] Message: [MESSAGE]"
+                "FORMAT: [TIME] [LEVEL] Message: [MESSAGE]"
         };
 
         String logFilePath = "";

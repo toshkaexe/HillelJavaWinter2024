@@ -24,9 +24,9 @@ public class FileLogger {
     private void log(LoggingLevel level, String message) throws IOException, FileMaxSizeReachedException {
         if (level.ordinal() <= config.getLoggingLevel().ordinal()) {
             String logMessage = config.getFormat()
-                    .replace("[TIME]", getCurrentTime())
-                    .replace("[LEVEL]", level.toString())
-                    .replace("[MESSAGE]", message);
+                    .replace("TIME", getCurrentTime())
+                    .replace("LEVEL", level.toString())
+                    .replace("MESSAGE", message);
 
             File logFile = new File(config.getFilePath());
             if (!logFile.exists()) {
