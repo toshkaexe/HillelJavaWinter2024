@@ -1,0 +1,25 @@
+[
+  {
+    "name": "John Doe",
+    "age": 30,
+    "city": "New York",
+    "email": "john.doe@example.com",
+    "phone": "+1234567890",
+    "interests": [
+      "programming",
+      "reading",
+      "hiking"
+    ]
+  },
+  {
+    "name": "Marie Peter",
+    "age": 33,
+    "city": "New York",
+    "email": "marie.peter@example.com",
+    "phone": "+14545454545",
+    "interests": [
+      "sport",
+      "cooking"
+    ]
+  }
+]

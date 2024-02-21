@@ -1,0 +1,49 @@
+timetable:
+  - faculty: Engineering
+    courses:
+      - course_name: Introduction to Computer Science
+        instructor: Prof. Smith
+        schedule:
+          - day: Monday
+            time: "10:00 AM - 12:00 PM"
+          - day: Wednesday
+            time: "10:00 AM - 12:00 PM"
+      - course_name: Electrical Circuits
+        instructor: Dr. Johnson
+        schedule:
+          - day: Tuesday
+            time: "1:00 PM - 3:00 PM"
+          - day: Thursday
+            time: "1:00 PM - 3:00 PM"
+  - faculty: Business
+    courses:
+      - course_name: Marketing Principles
+        instructor: Prof. Brown
+        schedule:
+          - day: Monday
+            time: "9:00 AM - 11:00 AM"
+          - day: Wednesday
+            time: "9:00 AM - 11:00 AM"
+      - course_name: Financial Accounting
+        instructor: Dr. Wilson
+        schedule:
+          - day: Tuesday
+            time: "11:00 AM - 1:00 PM"
+          - day: Thursday
+            time: "11:00 AM - 1:00 PM"
+  - faculty: Medicine
+    courses:
+      - course_name: Anatomy
+        instructor: Prof. Lee
+        schedule:
+          - day: Monday
+            time: "8:00 AM - 10:00 AM"
+          - day: Wednesday
+            time: "8:00 AM - 10:00 AM"
+      - course_name: Pharmacology
+        instructor: Dr. Martinez
+        schedule:
+          - day: Tuesday
+            time: "2:00 PM - 4:00 PM"
+          - day: Thursday
+            time: "2:00 PM - 4:00 PM"

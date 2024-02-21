@@ -1,0 +1,89 @@
+railway_network:
+  - station_name: Central Station
+    location: City A
+    platform_count: 10
+    services:
+      - type: Express
+        destinations:
+          - City X
+          - City Y
+          - City Z
+        timetable:
+          - destination: City X
+            departure_time: "08:00"
+          - destination: City Y
+            departure_time: "09:30"
+          - destination: City Z
+            departure_time: "11:00"
+      - type: Local
+        destinations:
+          - Suburb P
+          - Suburb Q
+        timetable:
+          - destination: Suburb P
+            departure_time: "07:45"
+          - destination: Suburb Q
+            departure_time: "10:15"
+  - station_name: Union Station
+    location: City B
+    platform_count: 8
+    services:
+      - type: Express
+        destinations:
+          - City Y
+          - City Z
+        timetable:
+          - destination: City Y
+            departure_time: "08:30"
+          - destination: City Z
+            departure_time: "10:00"
+      - type: Local
+        destinations:
+          - Suburb R
+          - Suburb S
+        timetable:
+          - destination: Suburb R
+            departure_time: "09:00"
+          - destination: Suburb S
+            departure_time: "11:30"
+  - station_name: Riverside Station
+    location: City C
+    platform_count: 6
+    services:
+      - type: Express
+        destinations:
+          - City X
+          - City Z
+        timetable:
+          - destination: City X
+            departure_time: "09:15"
+          - destination: City Z
+            departure_time: "12:00"
+      - type: Local
+        destinations:
+          - Suburb T
+          - Suburb U
+        timetable:
+          - destination: Suburb T
+            departure_time: "10:00"
+          - destination: Suburb U
+            departure_time: "13:30"
+  - station_name: Sunset Station
+    location: City D
+    platform_count: 4
+    services:
+      - type: Express
+        destinations:
+          - City X
+        timetable:
+          - destination: City X
+            departure_time: "07:00"
+      - type: Local
+        destinations:
+          - Suburb V
+          - Suburb W
+        timetable:
+          - destination: Suburb V
+            departure_time: "08:45"
+          - destination: Suburb W
+            departure_time: "11:15"
