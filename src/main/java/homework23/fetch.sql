@@ -6,7 +6,8 @@ SELECT Lesson.*, Homework.name AS homework_name, Homework.description AS homewor
 FROM Lesson
          JOIN Homework ON Lesson.homework_id = Homework.id;
 
---C. Отримання всіх записів Lesson (включаючи дані Homework) відсортованих за часом оновлення
+--C. Отримання всіх записів Lesson (включаючи дані Homework)
+-- відсортованих за часом оновлення
 SELECT Lesson.*, Homework.name AS homework_name, Homework.description AS homework_description
 FROM Lesson
          JOIN Homework ON Lesson.homework_id = Homework.id
