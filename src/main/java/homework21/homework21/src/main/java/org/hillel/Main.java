@@ -1,31 +1,33 @@
 package org.hillel;
 
 import java.io.*;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
+
 import java.util.Arrays;
 
 
 public class Main {
-    public static void main(String[] args) throws FileMaxSizeReachedException, IOException {
+    public static void main(String[] args) throws FileMaxSizeReachedException {
 
         String directoryPath;
 
-        if(args.length == 0) {
-            System.out.println("Анализ текущей дикертории");
+        if (args.length == 0) {
             directoryPath = System.getProperty("user.dir");
-            System.out.println(directoryPath);
+            // System.out.println(directoryPath);
         } else {
-            System.out.println("Аргументы командной строки:");
-            for(int i = 0; i < args.length; i++) {
+            //   System.out.println("Аргументы командной строки:");
+            for (int i = 0; i < args.length; i++) {
                 System.out.println(args[i]);
             }
-             directoryPath = args[0];
+            directoryPath = args[0];
         }
 
         convertFiles(directoryPath);
+
     }
 
     public static void convertFiles(String directoryPath) throws FileMaxSizeReachedException {
@@ -37,14 +39,14 @@ public class Main {
                 "[TIME][LEVEL] Message: [MESSAGE]");
         FileLogger logger = new FileLogger(config);
 
+        // проверка есть ли директория
         File directory = new File(directoryPath);
-        System.out.println(directory.toString());
         if (!directory.exists() || !directory.isDirectory()) {
             System.out.println("Invalid directory path.");
             return;
         }
         File convertedDir = new File(directory, "converted");
-        System.out.println(convertedDir);
+        //     System.out.println(convertedDir);
         // Проверяем, существует ли папка "converted"
         if (convertedDir.exists()) {
             // Если папка существует, очищаем ее содержимое
@@ -67,61 +69,48 @@ public class Main {
 
         // Если среди файлов нет файлов с расширением .json или .yaml, выводим сообщение
         if (!hasJsonOrYamlFiles) {
-            System.out.println("In this current dir we do not have  any json- or yaml- files" );
+            System.out.println("In this current dir we do not have  any json- or yaml- files");
+            return;
         }
 
-        // Преобразуем массив файлов в поток (Stream<File>)
-        Arrays.stream(files)
-                // Фильтруем только файлы (не каталоги)
-                .filter(File::isFile)
-                // Преобразуем каждый файл в его имя (String)
-                .map(File::getName)
-                // Выводим каждое имя файла на консоль
-                .forEach(System.out::println);
+        for (File file : files) {
+            if (file.isFile()) {
+                String fileName = file.getName();
+                if (fileName.endsWith(".json")) {
+                    String outputFileName = fileName.replace(".json", ".yaml");
+                    File outputFile = new File(convertedDir, outputFileName);
+                    try {
+                        long startTime = System.currentTimeMillis();
+                        convertJsonToYaml(file, outputFile);
+                        long endTime = System.currentTimeMillis();
+                        long duration = endTime - startTime;
+                        String logEntry = String.format("%s -> %s, %dms, %d -> %d\n",
+                                fileName, outputFileName, duration, file.length(), outputFile.length());
 
-
-
-
-
-
-            for (File file : files) {
-                if (file.isFile()) {
-                    String fileName = file.getName();
-                    if (fileName.endsWith(".json")) {
-                        String outputFileName = fileName.replace(".json", ".yaml");
-                        File outputFile = new File(convertedDir, outputFileName);
-                       try {
-                            long startTime = System.currentTimeMillis();
-                             convertJsonToYaml(file, outputFile);
-                            long endTime = System.currentTimeMillis();
-                            long duration = endTime - startTime;
-                            String logEntry = String.format("%s -> %s, %dms, %d -> %d\n",
-                                    fileName, outputFileName, duration, file.length(), outputFile.length());
-
-                           logger.info(logEntry);
-                        } catch (IOException e) {
-                            System.out.println("Error converting file: " + fileName);
-                            e.printStackTrace();
-                        }
-                    } else if (fileName.endsWith(".yaml")) {
-                        String outputFileName = fileName.replace(".yaml", ".json");
-                        File outputFile = new File(convertedDir, outputFileName);
-                        try {
-                            long startTime = System.currentTimeMillis();
-                            convertYamlToJson(file, outputFile);
-                            long endTime = System.currentTimeMillis();
-                            long duration = endTime - startTime;
-                            String logEntry = String.format("%s -> %s, %dms, %d -> %d\n",
-                                    fileName, outputFileName, duration, file.length(), outputFile.length());
-                            logger.info(logEntry);
-                        } catch (IOException e) {
-                            System.out.println("Error converting file: " + fileName);
-                            e.printStackTrace();
-                        }
+                        logger.info(logEntry);
+                    } catch (IOException e) {
+                        System.out.println("Error converting file: " + fileName);
+                        e.printStackTrace();
+                    }
+                } else if (fileName.endsWith(".yaml")) {
+                    String outputFileName = fileName.replace(".yaml", ".json");
+                    File outputFile = new File(convertedDir, outputFileName);
+                    try {
+                        long startTime = System.currentTimeMillis();
+                        convertYamlToJson(file, outputFile);
+                        long endTime = System.currentTimeMillis();
+                        long duration = endTime - startTime;
+                        String logEntry = String.format("%s -> %s, %dms, %d -> %d\n",
+                                fileName, outputFileName, duration, file.length(), outputFile.length());
+                        logger.info(logEntry);
+                    } catch (IOException e) {
+                        System.out.println("Error converting file: " + fileName);
+                        e.printStackTrace();
                     }
                 }
             }
-
+        }
+        System.out.printf("All files conversion was successful!");
     }
 
     private static void clearDirectory(File directory) {
@@ -160,7 +149,7 @@ public class Main {
             String yamlString = yaml.dump(json);
             outputStream.write(yamlString.getBytes());
         }
-      }
+    }
 
 
     public static void convertYamlToJson(File yamlFile, File jsonFile) throws IOException {
