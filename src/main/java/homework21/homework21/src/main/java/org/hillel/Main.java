@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileMaxSizeReachedException, IOException {
 
         String directoryPath;
 
@@ -28,7 +28,15 @@ public class Main {
         convertFiles(directoryPath);
     }
 
-    public static void convertFiles(String directoryPath) {
+    public static void convertFiles(String directoryPath) throws FileMaxSizeReachedException {
+        // Log Output config
+        String logFilePath = "logfile.txt";
+        FileLoggerConfiguration config = new FileLoggerConfiguration(logFilePath,
+                LoggingLevel.INFO,
+                5000000,
+                "[TIME][LEVEL] Message: [MESSAGE]");
+        FileLogger logger = new FileLogger(config);
+
         File directory = new File(directoryPath);
         System.out.println(directory.toString());
         if (!directory.exists() || !directory.isDirectory()) {
@@ -70,7 +78,12 @@ public class Main {
                 .map(File::getName)
                 // Выводим каждое имя файла на консоль
                 .forEach(System.out::println);
-        try (FileWriter logFileWriter = new FileWriter(new File(directory, "result.log"))) {
+
+
+
+
+
+
             for (File file : files) {
                 if (file.isFile()) {
                     String fileName = file.getName();
@@ -84,7 +97,8 @@ public class Main {
                             long duration = endTime - startTime;
                             String logEntry = String.format("%s -> %s, %dms, %d -> %d\n",
                                     fileName, outputFileName, duration, file.length(), outputFile.length());
-                           logFileWriter.write(logEntry);
+
+                           logger.info(logEntry);
                         } catch (IOException e) {
                             System.out.println("Error converting file: " + fileName);
                             e.printStackTrace();
@@ -99,7 +113,7 @@ public class Main {
                             long duration = endTime - startTime;
                             String logEntry = String.format("%s -> %s, %dms, %d -> %d\n",
                                     fileName, outputFileName, duration, file.length(), outputFile.length());
-                            logFileWriter.write(logEntry);
+                            logger.info(logEntry);
                         } catch (IOException e) {
                             System.out.println("Error converting file: " + fileName);
                             e.printStackTrace();
@@ -107,10 +121,7 @@ public class Main {
                     }
                 }
             }
-        } catch (IOException e) {
-            System.out.println("Error writing to log file.");
-            e.printStackTrace();
-        }
+
     }
 
     private static void clearDirectory(File directory) {
