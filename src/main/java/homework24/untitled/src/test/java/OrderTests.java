@@ -22,17 +22,12 @@ public class OrderTests {
         Product product4 = new Product(4, "Product 4", 45.99);
         Product product5 = new Product(5, "Product 5", 55.99);
 
-        List<Product> products = Arrays.asList(
-                product1, product2, product3, product4, product5
-        );
-
+        List<Product> products = Arrays.asList(product1, product2, product3, product4, product5);
 
         Order order = new Order(56, new Date(), 31.48, products);
 
-
         OrderRepository orderRepository = new OrderRepository();
         orderRepository.addOrder(order);
-
 
         Order retrievedOrder = orderRepository.getOrderById(56);
 
@@ -57,9 +52,7 @@ public class OrderTests {
         Product product3 = new Product(3, "Product 3", 34.49);
         Product product4 = new Product(4, "Product 4", 45.99);
         Product product5 = new Product(5, "Product 5", 55.99);
-        List<Product> products = Arrays.asList(
-                product1, product2, product3, product4, product5
-        );
+        List<Product> products = Arrays.asList(product1, product2, product3, product4, product5);
 
         Order order = new Order(56, new Date(), 31.48, products);
 
