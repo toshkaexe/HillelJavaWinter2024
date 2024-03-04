@@ -1,26 +1,29 @@
 package org.springframework;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class OrderRepository {
-    private Map<Integer, Order> orders;
+    private final Map<Integer, Order> orderMap;
 
     public OrderRepository() {
-        this.orders = new HashMap<>();
+        this.orderMap = new HashMap<>();
     }
-
+    // Method to get an order by ID
     public Order getOrderById(int id) {
-        return orders.get(id);
+
+        return orderMap.getOrDefault(id, null);
     }
 
+    // Method to get all orders
     public List<Order> getAllOrders() {
-        return new ArrayList<>(orders.values());
+        return new ArrayList<>(orderMap.values());
     }
 
-    public void addOrder(Order order) {
-        orders.put(order.getId(), order);
+    // Method to add a new order
+    public Order addOrder(Order order) {
+     int id = order.getId();
+        order.setId(id);
+        orderMap.put(id, order);
+        return order;
     }
 }
