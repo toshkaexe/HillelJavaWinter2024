@@ -1,7 +1,7 @@
 import org.junit.Test;
-import org.springframework.Order;
-import org.springframework.OrderRepository;
-import org.springframework.Product;
+import org.hillel.Order;
+import org.hillel.OrderRepository;
+import org.hillel.Product;
 
 import java.util.Arrays;
 import java.util.Date;

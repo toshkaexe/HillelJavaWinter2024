@@ -1,4 +1,4 @@
-package org.springframework;
+package org.hillel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

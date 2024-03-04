@@ -1,4 +1,4 @@
-package org.springframework;
+package org.hillel;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
