@@ -1,12 +1,14 @@
 package org.hillel;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
+@Data
 @Getter
 @Setter
 @Table(name="STUDENT")
@@ -14,7 +16,8 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column
+    private int id;
 
     private String name;
 
