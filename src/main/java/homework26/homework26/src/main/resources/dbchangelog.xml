@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        logicalFilePath="db.changelog-master.xml"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Create Homework table -->
+    <changeSet id="1" author="Anton">
+        <createTable tableName="Homework">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" nullable="false" autoIncrement="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Create Lesson table -->
+    <changeSet id="2" author="Anton">
+        <createTable tableName="Lesson">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" nullable="false" autoIncrement="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="updatedAt" type="TIMESTAMP"/>
+            <column name="homework_id" type="INT">
+                <constraints nullable="true"/>
+                <fkConstraint foreignTableName="Homework" onDelete="CASCADE" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Create Schedule table -->
+    <changeSet id="3" author="Anton">
+        <createTable tableName="Schedule">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" nullable="false" autoIncrement="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="updatedAt" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Create Schedule_Lesson table -->
+    <changeSet id="4" author="Anton">
+        <createTable tableName="Schedule_Lesson">
+            <column name="schedule_id" type="INT"/>
+            <column name="lesson_id" type="INT"/>
+            <constraints primaryKey="true"/>
+            <constraints uniqueConstraintName="schedule_lesson_unique"/>
+            <constraints primaryKey="true"/>
+            <fkConstraint baseTableName="Schedule" baseColumnNames="id" referencedTableName="Schedule"
+                          referencedColumnNames="id"/>
+            <fkConstraint baseTableName="Lesson" baseColumnNames="id" referencedTableName="Lesson"
+                          referencedColumnNames="id"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
