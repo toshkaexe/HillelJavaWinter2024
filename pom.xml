@@ -14,6 +14,8 @@
         <module>src/main/java/homework19/game</module>
         <module>src/main/java/homework21/homework21</module>
         <module>src/main/java/homework24/untitled</module>
+        <module>src/main/java/homework25/homework25</module>
+        <module>src/main/java/homework27/homework27</module>
     </modules>
     <version>0.1.0</version>
 
