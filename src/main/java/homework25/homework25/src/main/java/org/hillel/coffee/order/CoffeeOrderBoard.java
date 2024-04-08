@@ -1,6 +1,9 @@
 package org.hillel.coffee.order;
 
+
+
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class CoffeeOrderBoard {
@@ -10,31 +13,34 @@ public class CoffeeOrderBoard {
         orders.add(order);
     }
 
-    public void deliver() {
+    public Order deliver() {
         if (!orders.isEmpty()) {
             Order nextOrder = orders.remove(0);
-            System.out.println("Delivering order #" + nextOrder.getOrderNumber() + " for " + nextOrder.getCustomerName());
-        } else {
-            System.out.println("No orders to deliver.");
+            return nextOrder;
         }
+            System.out.println("No orders to deliver.");
+        return null;
     }
 
-    public void deliver(int orderNumber) {
+    public Order deliver(int orderNumber) {
         for (Order order : orders) {
             if (order.getOrderNumber() == orderNumber) {
                 orders.remove(order);
-                System.out.println("Delivering order #" + order.getOrderNumber() + " for " + order.getCustomerName());
-                return;
+               // System.out.println("Delivering order #" + order.getOrderNumber() + " for " + order.getCustomerName());
+                return order;
             }
         }
-        System.out.println("Order #" + orderNumber + " not found.");
+        //System.out.println("Order #" + orderNumber + " not found.");
+        return  null;
     }
 
-    public void printOrders() {
-
+    public List<String> printOrders() {
+        List<String> result = new ArrayList<>();
         for (Order order : orders) {
-            System.out.println(order.getOrderNumber() + " | " + order.getCustomerName());
+            result.add(order.getOrderNumber() + " | " + order.getCustomerName());
         }
+        return result;
+
 
     }
 }

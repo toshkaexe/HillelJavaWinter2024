@@ -6,12 +6,6 @@ public class Order {
     private String customerName;
 
     public Order(String customerName) {
-        int val;
-        val =4;
-        Number val3= 3;
-        String d="3";
-
-
         this.orderNumber = orderCounter++;
         this.customerName = customerName;
     }
@@ -22,5 +16,13 @@ public class Order {
 
     public String getCustomerName() {
         return customerName;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderNumber=" + orderNumber +
+                ", customerName='" + customerName + '\'' +
+                '}';
     }
 }
