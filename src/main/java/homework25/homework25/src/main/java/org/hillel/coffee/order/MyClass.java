@@ -14,13 +14,16 @@ public class MyClass {
         orderBoard.add(new Order("Obi-van"));
         orderBoard.add(new Order("John Snow"));
 
-        logInfo.info("Curren line of orders: {}", orderBoard.printOrders());
-        Order ord1 = orderBoard.deliver();
-        logInfo.info("Order from the line is delivered: {}", ord1.toString());
+        logInfo.info("Current line of orders: {}", orderBoard.printOrders());
+
+        Order firsrOrder = orderBoard.deliver();
+        logInfo.info("First order from the line is delivered: {}", firsrOrder.toString());
+
         Order order4 = orderBoard.deliver(4);
         logInfo.info("Special Case: Order 4 is delivered: {}", order4.toString());
+
         orderBoard.printOrders();
-        logInfo.info("Curren line of orders: {}", orderBoard.printOrders());
+        logInfo.info("Current line of orders: {}", orderBoard.printOrders());
     }
 
 }
