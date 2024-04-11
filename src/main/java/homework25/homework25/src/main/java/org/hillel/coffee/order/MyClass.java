@@ -4,8 +4,12 @@ package org.hillel.coffee.order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.SimpleFormatter;
+
 public class MyClass {
-    private static final Logger logInfo = LoggerFactory.getLogger("logger.info");
+    private static final Logger logger = LoggerFactory.getLogger(MyClass.class);
     public static void main(String[] args) {
 
         CoffeeOrderBoard orderBoard = new CoffeeOrderBoard();
@@ -14,16 +18,16 @@ public class MyClass {
         orderBoard.add(new Order("Obi-van"));
         orderBoard.add(new Order("John Snow"));
 
-        logInfo.info("Current line of orders: {}", orderBoard.printOrders());
+        logger.info("Current line of orders: {}", orderBoard.printOrders());
 
         Order firsrOrder = orderBoard.deliver();
-        logInfo.info("First order from the line is delivered: {}", firsrOrder.toString());
+        logger.info("First order from the line is delivered: {}", firsrOrder.toString());
 
         Order order4 = orderBoard.deliver(4);
-        logInfo.info("Special Case: Order 4 is delivered: {}", order4.toString());
+        logger.info("Special Case: Order 4 is delivered: {}", order4.toString());
 
         orderBoard.printOrders();
-        logInfo.info("Current line of orders: {}", orderBoard.printOrders());
+        logger.info("Current line of orders: {}", orderBoard.printOrders());
     }
 
 }
