@@ -1,31 +1,42 @@
 package org.hillel.repository;
 
-import org.hillel.order.Order;
+import lombok.Getter;
+import org.hillel.dto.Order;
+import org.hillel.dto.Product;
+import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.*;
 
+@Repository
 public class OrderRepository {
-    private List<Order> orders;
+    private int orderId;
+    private int productId;
+    private Map<Integer, Order> orders;
 
     public OrderRepository() {
-        this.orders = new ArrayList<>();
+        orders = new HashMap<>();
     }
-
-    // Метод отримання замовлення за id
+    public int addOrder(List<Product> products) {
+        orderId++;
+        int totalCost = 0;
+        for (Product p: products) {
+            productId++;
+            p.setId(productId);
+            totalCost += p.getCost();
+        }
+        Order newOrder = new Order(orderId, LocalDate.now(), totalCost, products);
+        orders.put(orderId, newOrder);
+        return orderId;
+    }
+    public Collection<Order> getAllOrders() {
+        return orders.values();
+    }
     public Order getOrderById(int id) {
-        // Реалізація пошуку замовлення за id
-        return  null;
+        return orders.get(id);
     }
 
-    // Метод отримання всіх замовлень
-    public List<Order> getAllOrders() {
-        return this.orders;
+    public Map<Integer, Order> getOrders() {
+        return orders;
     }
-
-    // Метод додавання замовлення
-    public void addOrder(Order order) {
-        this.orders.add(order);
-    }
-
 }

@@ -1,0 +1,17 @@
+GET localhost:8080/api/v1/ping
+
+###
+GET localhost:8080/api/v1/orders
+
+
+###
+POST localhost:8080/api/v1/add
+Content-Type: application/json
+
+[
+  {
+    "id": 0,
+    "name": "test1",
+    "cost": 75
+  }
+]
