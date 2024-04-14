@@ -71,3 +71,8 @@ replay_pid*
 /src/main/java/homework21/homework21/src/main/java/org/hillel/converted/timetables.json
 /src/main/java/homework21/homework21/src/main/java/org/hillel/converted/universiry.json
 /src/main/java/homework21/homework21/src/main/java/org/hillel/converted/univercity.json
+/src/main/java/homework29/homework29/target/*.*
+/src/main/java/homework27/homework27/target/*.*
+/src/main/java/homework25/homework25/target/*.*
+
+/src/main/java/homework29/homework29/target/classes/api.http
