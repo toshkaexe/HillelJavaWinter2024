@@ -1,17 +1,20 @@
-package org.hillel;
+package org.hillel.order;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
-@AllArgsConstructor
 @ToString
-public class Product {
+@AllArgsConstructor
+public class Order {
     private int id;
-    private String name;
+    private String date;
     private double cost;
+    private List<Product> products;
 
 }

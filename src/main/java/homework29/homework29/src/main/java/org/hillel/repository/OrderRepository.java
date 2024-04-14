@@ -1,6 +1,6 @@
 package org.hillel.repository;
 
-import org.hillel.Order;
+import org.hillel.order.Order;
 
 import java.util.ArrayList;
 import java.util.List;
