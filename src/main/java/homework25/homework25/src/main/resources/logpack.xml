@@ -6,44 +6,38 @@
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_FOLDER}/info/info.log</file>
 
-        <!-- Add a filter to include INFO level logs -->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>INFO</level>
         </filter>
 
-        <!-- Rolling policy for log rotation -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_FOLDER}/debug/archive/debug-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy
                     class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <!-- or whenever the file size reaches 10MB -->
-                <maxFileSize>100MB</maxFileSize>
+                <maxFileSize>1MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
             <!-- keep 1 days' worth of history -->
             <maxHistory>1</maxHistory>
             <totalSizeCap>100MB</totalSizeCap>
         </rollingPolicy>
-
-        <!-- Encoder for the log message format -->
         <encoder>
             <pattern>%d [%-5level] [%-14.14thread] - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- Logger configuration to log INFO level messages -->
     <logger name="logger.info" level="INFO">
         <appender-ref ref="info_log"/>
     </logger>
 
-    <!-- Configuration for logging INFO level messages to the console -->
     <root name="info-stdout" level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
 
-    <!-- Configuration for the console appender -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
+
 </configuration>
