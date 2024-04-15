@@ -1,13 +1,11 @@
 import org.hillel.coffee.order.CoffeeOrderBoard;
 import org.hillel.coffee.order.Order;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-
-public class CoffeOrderBoardTest {
+public class CoffeeOrderBoardTest {
     @Test
     public void testAddOrder() {
         CoffeeOrderBoard orderBoard = new CoffeeOrderBoard();
