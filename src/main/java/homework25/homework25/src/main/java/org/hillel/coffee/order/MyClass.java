@@ -4,10 +4,6 @@ package org.hillel.coffee.order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.SimpleFormatter;
-
 public class MyClass {
     private static final Logger logger = LoggerFactory.getLogger(MyClass.class);
     public static void main(String[] args) {
