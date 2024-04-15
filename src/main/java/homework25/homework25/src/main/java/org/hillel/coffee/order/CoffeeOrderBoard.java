@@ -2,11 +2,15 @@ package org.hillel.coffee.order;
 
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 
 import java.util.List;
 
 public class CoffeeOrderBoard {
+    private static final Logger logger = LoggerFactory.getLogger(CoffeeOrderBoard.class);
     private List<Order> orders = new ArrayList<>();
 
     public void add(Order order) {
@@ -18,7 +22,7 @@ public class CoffeeOrderBoard {
             Order nextOrder = orders.remove(0);
             return nextOrder;
         }
-            System.out.println("No orders to deliver.");
+        logger.info("No orders to deliver.");
         return null;
     }
 
@@ -26,11 +30,11 @@ public class CoffeeOrderBoard {
         for (Order order : orders) {
             if (order.getOrderNumber() == orderNumber) {
                 orders.remove(order);
-               // System.out.println("Delivering order #" + order.getOrderNumber() + " for " + order.getCustomerName());
+                logger.info("Delivering order #" + order.getOrderNumber() + " for " + order.getCustomerName());
                 return order;
             }
         }
-        //System.out.println("Order #" + orderNumber + " not found.");
+        logger.info("Order #" + orderNumber + " not found.");
         return  null;
     }
 
