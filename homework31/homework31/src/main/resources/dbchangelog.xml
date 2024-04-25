@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        logicalFilePath="dbchangelog.xml"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="Lera">
+        <createTable tableName="product">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)"/>
+            <column name="cost" type="int"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="Lera">
+        <createTable tableName="order">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="cost" type="int"/>
+            <column name="date" type="datetime"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="Lera">
+        <createTable tableName="Purchase">
+            <column name="product_id" type="int"/>
+            <column name="order_id" type="int"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
